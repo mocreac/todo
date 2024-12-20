@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+.add-new-button {
+  opacity: 0; /* Start with opacity 0 */
+  visibility: hidden; /* Start as hidden */
+  transition: opacity 0.2s ease, visibility 0.2s ease; /* Transition for both opacity and visibility */
+}
+
+.cbody:hover .add-new-button {
+  opacity: 1; /* Change opacity to 1 on hover */
+  visibility: visible; /* Make it visible on hover */
+  
+}
+
+.task-element {
+  max-height: 100px; /* Adjust as needed */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.task-element.expanded {
+  max-height: 500px; /* Adjust as needed */
+  
+}
+
+.task-element .lwr-task-section {
+  transition: opacity 0.3s ease;
+}
+
+.task-element.expanded .lwr-task-section {
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+
+}
+
+.task-element .lwr-task-section.hidden {
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease;
+
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.placeholder {
+  border: 2px dashed #ccc;
+  height: 100px;
+}
